@@ -1,0 +1,473 @@
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    min-height: 100%;
+    margin: 0 auto;
+    font-family: "Roboto";
+    width: 100%;
+    position: relative;
+}
+
+.body-wrap {
+    overflow: hidden;
+    min-height: 100%;
+    min-width: 100%;
+    position: relative;
+}
+
+.no-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.small-navigation {
+    z-index:1000;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    height: 100%;
+    text-align: center;
+}
+
+.small-navigation a {
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+    color: #333;
+}
+
+.small-navigation .active-link {
+    text-decoration: underline;
+}
+
+.arcs-wrap {
+    font-family: "Source Sans Pro";
+    position: absolute;
+    width: 200px;
+    font-weight: 200;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.80);
+    z-index: 1000;
+    top: 20%;
+    right:10%;
+    border-radius: 50%;
+    opacity: 0.8;
+    box-shadow: 0px 0px 3px #333;
+    box-shadow: none;
+    display: none;
+    background: rgb(234,234,234); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(234,234,234,1) 0%, rgba(249,249,249,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(234,234,234,1)), color-stop(100%,rgba(249,249,249,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(234,234,234,1) 0%,rgba(249,249,249,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(234,234,234,1) 0%,rgba(249,249,249,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(234,234,234,1) 0%,rgba(249,249,249,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(234,234,234,1) 0%,rgba(249,249,249,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eaeaea', endColorstr='#f9f9f9',GradientType=0 ); /* IE6-9 */
+}
+
+.arcs-wrap .help-text {
+    color: #747474;
+    position: absolute;
+    width: 200px;
+    bottom: -165px;
+    left: 50%;
+    margin-left: -100px;
+    font-weight: 400;
+}
+
+.needle {
+    position: absolute;
+    left: 50%;
+    margin-left: -8px;
+    top: 50%;
+    margin-top: -90px;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    z-index: 300;
+}
+
+.needle:before {
+    position: absolute;
+    content:'';
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background: #eeeeee;
+    z-index: 410;
+    top: 83px;
+    left: 2px;
+    box-shadow: 0 0 2px #666;
+}
+
+.needle-top  {
+    width:0;
+    height:0;
+    border-top: 90px solid #da9f4c;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+    position: relative;
+    z-index: 400;
+
+}
+
+.needle-top:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: 0;
+    left:0px;
+    border-top: 90px solid #e7ce74;
+    border-right: 8px solid transparent;
+
+}
+
+.needle-bottom {
+    width:0;
+    height:0;
+    border-top: 90px solid silver;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    position: relative;
+
+}
+
+.needle-bottom:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: -90px;
+    right:-8px;
+    border-top: 90px solid #969696;
+    border-right: 8px solid transparent;
+}
+
+.direction {
+    width: 50px;
+    height: 30px;
+    color: #999;
+    font-size: 1em;
+    text-align: center;
+    line-height: 30px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.direction.left, .direction.right {
+    top: 50%;
+    margin-top: -15px;
+}
+
+.direction.left {
+    left: -10px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+.direction.right {
+    right: -10px;
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.direction.top, .direction.bottom {
+    left: 50%;
+    margin-left: -25px;
+}
+
+.direction.top {
+    top: 0;
+}
+
+.direction.bottom {
+    bottom: 0;
+}
+
+.arcs {
+    position: absolute;
+    left: 50%;
+    margin-left: -72px;
+    top: 50%;
+    margin-top: -74px;
+    z-index: 300;
+    box-sizing: content-box;
+}
+
+.arcs div p {
+    position: absolute;
+    text-align: center;
+    box-sizing: content-box;
+    border-radius: 30px;
+    text-shadow: 0px 0px 12px #b2c9ca;
+    color: #fff;
+}
+
+.arcs p {
+    width: 50px;
+    height: 50px;
+    font-size: 1.4em;
+    cursor: pointer;
+}
+
+.arcs .link3 i, .arcs .link4 i {
+    line-height: 80px;
+}
+
+.arcs .link1 i, .arcs .link2 i {
+    line-height: 50px;
+}
+
+.arcs p {
+    box-sizing: content-box;
+}
+
+.arcs .link3, .arcs .link4 {
+    height: 80px;
+}
+
+.arcs .link1, .arcs .link2 {
+    width: 80px;
+}
+
+.arcs .link1 {
+    top: 0;
+    left: 50%;
+    margin-left: -40px;
+}
+
+.arcs .link2 {
+    bottom: -5px;
+    left: 50%;
+    margin-left: -40px;
+}
+
+.arcs .link3 {
+    right: 0;
+    top:50%;
+    margin-top: -40px;
+}
+
+.arcs .link4 {
+    left: 0;
+    top: 50%;
+    margin-top: -40px;
+}
+
+.arcs div{
+    box-sizing: content-box;
+    display: inline-block;
+    min-width: 30px; /* the width of the innermost element */
+    min-height: 30px; /* the height of the innermost element */
+    padding: 0.5em; /* the spacing between each arc */
+    border-radius: 50%; /* for making the elements 'round' */
+    z-index: 200;
+    border: 50px solid rgba(47, 117, 125, 0.8); /* the 'strokes' of the arc */
+    border-color: #686967;
+}
+
+.page {
+    height: 100%;
+    width: 100%;
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background: #fff;
+    z-index: 800;
+    overflow: hidden;
+}
+
+.page-1,.page-2,.page-3 {
+    top: 100%;
+    left:0;
+}
+
+.page-1 {
+    background: #f3f3f5;
+    color: #dd874d;
+}
+
+.page-2 {
+    background: #D5D6D4;
+    color: #373539;
+}
+
+.page-3 {
+    background: #f7f1d8;
+    color: #333;
+}
+
+.main-padding {
+    max-width: 768px;
+    margin: 0 auto;
+    padding-top: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 4%;
+}
+
+.main-padding p {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+@media screen and (min-width: 768px) {
+    .main-padding {
+        padding-top: 3%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .main-padding {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+h1.big {
+    font-size: 4em;
+    font-weight: 300;
+    font-family: "Source Sans Pro";
+    font-weight: 200;
+
+}
+
+h1.big span {
+    padding-bottom: 40px;
+    display: inline-block;
+}
+
+.circled i{
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    color: #ddd;
+}
+
+.intro {
+    height: 100%;
+}
+
+.show-content {
+    border: 2px solid #f6936f;
+    text-align: center;
+    line-height: 50px;
+    color: #8cd961;
+    color: #64d0d9;
+    color: #4b496e;
+    color: #f8cb77;
+    border-color: #eaedd8;
+
+}
+
+/* City */
+
+.city {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: #286068;
+    background: #fffef2;
+
+}
+
+
+.hero {
+    text-align: center;
+    -webkit-animation: starwarstext 1.5s ease forwards;
+    -o-animation: starwarstext 1.5s ease forwards;
+    animation: starwarstext 1.5s ease forwards;
+}
+
+.hero h1 {
+    font-size: 3.4em;
+    color: #fd7c37;
+    font-family: "Source Sans Pro";
+    font-weight: 200;
+    -webkit-animation: h1Wobble 8s infinite;
+    -o-animation: h1Wobble 8s infinite;
+    animation: h1Wobble 8s infinite;
+}
+
+.hero h1 b {
+    font-weight: 400;
+}
+
+@media only screen and (max-device-width: 480px) and (orientation: portrait) {
+    .hero h1 {
+        font-size: 10em;
+    }
+}
+
+@-webkit-keyframes starwarstext {
+    0%{-webkit-transform: translateY(400px)}
+    80%, 92%{-webkit-transform: translateY(100px); opacity: 1}
+    100% {-webkit-transform: translateY(100px);}
+}
+
+@keyframes starwarstext {
+    0%{transform: translateY(400px)}
+    80%, 92%{-transform: translateY(100px); opacity: 1}
+    100% {transform: translateY(100px);}
+}
+
+@-webkit-keyframes h1Wobble {
+    0%, 100%{ -webkit-transform: translateY(-3px);}
+    50%{-webkit-transform: translateY(3px);}
+}
+
+@keyframes h1Wobble {
+    0%, 100% {transform: translateY(-3px);}
+    50% {transform: translateY(3px);}
+}
+
+.hero p {
+    font-weight: 300;
+    padding-top: 10px;
+    color: #d7c9dd;
+    color: #bdbdbd;
+    -webkit-animation: h1Wobble 4s infinite;
+    -o-animation: h1Wobble 4s infinite;
+    animation: h1Wobble 4s infinite;
+}
+
+@media only screen and (max-device-width: 480px) and (orientation: portrait) {
+    .hero p {
+        font-size: 7em;
+    }
+}
+
+@-webkit-keyframes popin {
+    0%{-webkit-transform: scale3d(0,0,0) translateY(-3px) ;}
+    80%{-webkit-transform: scale3d(1.05,1.05,1.05) translateY(-3px);}
+    83%{-webkit-transform: scale3d(0.95,0.95,0.95) translateY(-3px);}
+    85%{-webkit-transform: scale3d(1.02,1.02,1.02) translateY(-3px);}
+    87%{-webkit-transform: scale3d(0.97,0.97,0.97) translateY(-3px);}
+    89%{-webkit-transform: scale3d(1.03,1.03,1.03) translateY(-3px);}
+    81%,100%{-webkit-transform: scale3d(1,1,1) translateY(-3px);}
+}
+@keyframes popin {
+    0%{transform: scale3d(0,0,0) translateY(-3px) ;}
+    80%{transform: scale3d(1.05,1.05,1.05) translateY(-3px);}
+    83%{transform: scale3d(0.95,0.95,0.95) translateY(-3px);}
+    85%{transform: scale3d(1.02,1.02,1.02) translateY(-3px);}
+    87%{transform: scale3d(0.97,0.97,0.97) translateY(-3px);}
+    89%{transform: scale3d(1.03,1.03,1.03) translateY(-3px);}
+    81%,100%{transform: scale3d(1,1,1) translateY(-3px);}
+}
